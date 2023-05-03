@@ -24,8 +24,8 @@ li {
 }
 
 .title {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 34px;
+	margin-bottom: 34px;
 
 	font-family: 'Press Start 2P', cursive;
 	font-size: 35px;
@@ -45,7 +45,7 @@ nav {
 	height: 100%;
 	width: 100%;
 
-	font-size: 20px;
+	font-size: 18px;
 	color: white;
 	background-color: black;
 }
@@ -70,6 +70,8 @@ nav {
 	position: relative;
 	margin-right: 30px;
 	text-align: end;
+
+	cursor: pointer;
 }
 
 #basket-count {

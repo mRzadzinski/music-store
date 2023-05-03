@@ -18,8 +18,8 @@ const Header = () => {
 					<li className='category'>Effects</li>
 				</div>
 				<div className='basket-container'>
-					<FontAwesomeIcon icon={faBasketShopping} size='lg' />
-					<div id='basket-count'>25</div>
+					<FontAwesomeIcon icon={faBasketShopping} />
+					<div id='basket-count'>5</div>
 				</div>
 			</nav>
 		</div>
