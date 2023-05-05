@@ -33,10 +33,6 @@ li {
 	color: black;
 }
 
-.category {
-    cursor: pointer;
-}
-
 nav {
 	display: flex;
 	justify-content: space-between;
@@ -54,7 +50,21 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-    gap: 50px;
+	height: 100%;
+} 
+
+.category-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	width: 120px;
+	height: 100%;
+	cursor: pointer;
+
+	&:hover {
+		background-color: rgb(71, 71, 71);
+	}
 }
 
 .basket-container, .basket-counterpart {
@@ -67,17 +77,30 @@ nav {
 }
 
 .basket-container {
-	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 100%;
+	width: 60px; 
+
 	margin-right: 40px;
+	padding-right: 3px;
+
+	position: relative;
 	text-align: end;
 
 	cursor: pointer;
+
+	&:hover {
+		background-color: rgb(71, 71, 71);
+	}
 }
 
 #basket-count {
 	position: absolute;
-	bottom: -9px;
-	right: -20px;
+	bottom: 5px;
+	right: 2px;
 
 	width: 20px;
 

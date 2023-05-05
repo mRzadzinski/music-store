@@ -13,15 +13,21 @@ const Header = () => {
 			<nav>
 				<div className='basket-counterpart'></div>
 				<div className='categories'>
-					<Link to='/browser'>
-						<li className='category'>Guitars</li>
-					</Link>
-					<Link to='/browser'>
-						<li className='category'>Amplifiers</li>
-					</Link>
-					<Link to='/browser'>
-						<li className='category'>Effects</li>
-					</Link>
+					<div className='category-container'>
+						<Link to='/browser'>
+							<li className='category'>Guitars</li>
+						</Link>
+					</div>
+					<div className='category-container'>
+						<Link to='/browser'>
+							<li className='category'>Amplifiers</li>
+						</Link>
+					</div>
+					<div className='category-container'>
+						<Link to='/browser'>
+							<li className='category'>Effects</li>
+						</Link>
+					</div>
 				</div>
 				<div className='basket-container'>
 					<FontAwesomeIcon icon={faBasketShopping} />

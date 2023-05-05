@@ -13,7 +13,7 @@ const MainPage = () => {
 				</div>
 			</div>
 			<div className='main-img-container'>
-				<img id='main-img' src={mainImg} alt='fender-guitars' />
+				{/* <img id='main-img' src={mainImg} alt='fender-guitars' /> */}
 			</div>
 		</div>
 	);
