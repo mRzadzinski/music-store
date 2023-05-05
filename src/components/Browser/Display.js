@@ -16,6 +16,29 @@ const Display = () => {
 
 			<div className='display-area'>
 				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
+				<ProductCard product={products[12]} />
 			</div>
 		</div>
 	);
