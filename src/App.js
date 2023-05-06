@@ -10,7 +10,7 @@ import { useState } from 'react';
 import products from './products-data';
 
 function App() {
-	const [product, setProduct] = useState(products[1])
+	const [product, setProduct] = useState(products[17])
 
 	return (
 		<BrowserRouter>

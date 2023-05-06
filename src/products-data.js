@@ -203,13 +203,13 @@ const products = [
 	{
 		type: 'effect',
 		id: 18,
-		name: 'Lehle Stereo Volume',
-		price: 238,
+		name: 'Strymon Bluesky',
+		price: 299,
 		availability: true,
-		imgSmall: images['lehle-small.jpeg'],
-		imgLarge: images['lehle-large.jpeg'],
+		imgSmall: images['strymon-bluesky-small.jpeg'],
+		imgLarge: images['strymon-bluesky-large.jpeg'],
 		description:
-			'The LEHLE STEREO VOLUME is a volume pedal equipped with a precise magnetic sensor enabling it to operate almost wear-free. This sensor uses the Hall effect, named after Edwin Hall, to measure the strength of magnetic fields.\n\nIn the LEHLE STEREO VOLUME, the Hall sensor, which is made in Germany, is accurately calibrated to the built-in magnet and the control range of the pedal. The pedal moves only the magnet, the distance is measured by the Hall sensor which controls a VCA.',
+			'The Strymon blueSky Reverberator has nearly every reverb sound you\'ll ever need for the stage and studio in pedal form: lush studio plates, subtle room ambience, and spanky tube-amp springs, each with real-time controls for instant tweaks.\n\nStandard decay, damping, and mix controls will have you dialing in your favorite reverb sounds in no time. And for more advanced textures, Modulation mode lets you color your reverbs with subtle tonal movement, and Shimmer mode gives endless sustain to your chords and leads for big-time drama.',
 	},
 ];
 
