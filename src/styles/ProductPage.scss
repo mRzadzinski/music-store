@@ -1,14 +1,138 @@
 .ProductPage {
-    display: flex;
+	display: flex;
+    justify-content: center;
 
-    width: 100%;
+	width: 100%;
+    max-width: 1500px;
 }
 
 .product-info {
-    
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+    min-width: 510px;
+
+	.arrow-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 35px;
+		height: 35px;
+
+		margin-top: 15px;
+		margin-left: 23px;
+		padding: 10px;
+
+		border-radius: 35px;
+
+		cursor: pointer;
+
+		&:hover {
+			background-color: rgb(230, 230, 230);
+		}
+	}
+
+	.prod-name-page {
+		margin-top: 20px;
+		margin-bottom: 25px;
+		padding: 0 35px 0 35px;
+
+		font-size: 36px;
+		font-weight: 500;
+		line-height: 130%;
+	}
+
+	.prod-img-container-page {
+		display: flex;
+		justify-content: center;
+
+		padding-left: 35px;
+		padding-right: 35px;
+
+		height: 500px;
+	}
+
+	#prod-img-page {
+		height: 500px;
+		width: 100%;
+		object-fit: contain;
+	}
+
+	.prod-description-page {
+		padding: 35px;
+		font-size: 1.1rem;
+		white-space: pre-wrap;
+	}
 }
 
 .buying-info {
-    width: 30vw;
-    min-width: 200px;
+	width: 30vw;
+	min-width: 200px;
+    max-width: 500px;
+    margin-right: 20px;
+
+	.prod-price-page {
+		margin-top: 150px;
+		font-size: 50px;
+		font-weight: 600;
+	}
+
+	.prod-availability-page {
+		margin-top: 5px;
+        margin-bottom: 30px;
+	}
+
+	.in-stock-true-page,
+	.in-stock-false-page {
+		font-size: 19px;
+	}
+
+	.in-stock-true-page {
+		color: green;
+	}
+
+	.in-stock-false-page {
+		color: rgb(250, 104, 0);
+	}
+
+    .add-count-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #add-count {
+        width: 55px;
+        min-width: 55px;
+        height: 40px;
+
+        border-radius: 20px;
+
+        text-align: center;
+    }
+
+    #add-to-basket-btn {
+        width: 200px;
+        height: 50px;
+    
+        border: none;
+        border-radius: 30px;
+    
+        font-size: 17px;
+        font-weight: 700;
+    
+        color: white;
+        background-color: #000000;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(44, 44, 44);
+        }
+
+        &:active {
+            background-color: rgb(87, 87, 87);
+        }
+    }
 }

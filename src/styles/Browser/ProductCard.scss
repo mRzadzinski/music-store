@@ -18,7 +18,7 @@
 	}
 }
 
-.prod-info {
+.prod-info-card {
 	display: flex;
 	flex-direction: column;
 
@@ -26,30 +26,30 @@
 	padding-right: 20px;
 }
 
-.prod-name {
+.prod-name-card {
     height: 38px;
 	font-size: 16px;
 }
 
-.prod-availability {
+.prod-availability-card {
 	margin-top: 12px;
 	margin-bottom: 4px;
 }
 
-.in-stock-true,
-.in-stock-false {
+.in-stock-true-card,
+.in-stock-false-card {
 	font-size: 15px;
 }
 
-.in-stock-true {
+.in-stock-true-card {
 	color: green;
 }
 
-.in-stock-false {
+.in-stock-false-card {
 	color: rgb(250, 104, 0);
 }
 
-.prod-price {
+.prod-price-card {
 	font-size: 23px;
 	font-weight: 500;
 }
