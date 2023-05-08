@@ -10,7 +10,12 @@ import { useState } from 'react';
 import products from './products-data';
 
 function App() {
-	const [product, setProduct] = useState(products[17])
+	const [product, setProduct] = useState(products[17]);
+	const [basketItems, setBasketItems] = useState([
+		products[0],
+		products[1],
+		products[11],
+	]);
 
 	return (
 		<BrowserRouter>
@@ -20,8 +25,11 @@ function App() {
 					<Routes>
 						<Route path='/' element={<MainPage />} />
 						<Route path='/browser' element={<Browser />} />
-						<Route path='/product-page' element={<ProductPage product={product} />} />
-						<Route path='/basket' element={<Basket />} />
+						<Route
+							path='/product-page'
+							element={<ProductPage product={product} />}
+						/>
+						<Route path='/basket' element={<Basket basketItems={basketItems} />} />
 					</Routes>
 				</div>
 				<Footer />

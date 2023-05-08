@@ -10,8 +10,6 @@ const images = importAllImages(
 	require.context('./img/gear/', false, /\.(png|jpe?g)$/)
 );
 
-console.log(images)
-
 const products = [
 	{
 		type: 'guitar',

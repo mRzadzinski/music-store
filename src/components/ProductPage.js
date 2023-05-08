@@ -35,7 +35,7 @@ const ProductPage = (props) => {
 				<div className='prod-availability-page'>{inStockStatus}</div>
 
 				<div className="add-count-container">
-					<select name='' id='add-count'>
+					<select name='' className='add-count'>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
 						<option value='3'>3</option>
