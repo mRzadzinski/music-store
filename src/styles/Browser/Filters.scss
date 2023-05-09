@@ -11,6 +11,28 @@ $light-gray: rgb(134, 134, 134);
 	background-color: #f3f3f3;
 }
 
+.reset-btn-container {
+	display: flex;
+	justify-content: flex-end;
+
+	margin-top: -20px;
+	margin-right: -20px;
+	margin-bottom: -30px;
+}
+
+#reset-filters-btn {
+	height: 23px;
+	width: 90px;
+
+	background-color: white;
+	border: rgb(196, 194, 194) solid 1px;
+	border-radius: 3px;
+
+	&:active {
+		background-color: rgb(221, 221, 221);
+	}
+}
+
 .filter {
 	display: flex;
 	flex-direction: column;
