@@ -12,19 +12,31 @@ const Filters = ({
 	const amplifiersCategory = useRef(null);
 	const effectsCategory = useRef(null);
 
+	const availabilityInput = useRef(null);
+
 	function setFontWeight(category) {
 		allCategory.current.classList.remove('fat-text');
 		guitarsCategory.current.classList.remove('fat-text');
 		amplifiersCategory.current.classList.remove('fat-text');
 		effectsCategory.current.classList.remove('fat-text');
 
-		category.current.classList.add('fat-text');
+		if (!category) {
+			allCategory.current.classList.add('fat-text');
+		} else {
+			category.current.classList.add('fat-text');
+		}
 	}
 
 	return (
 		<div className='Filters'>
 			<div className='reset-btn-container'>
-				<button id='reset-filters-btn' onClick={resetFilters}>
+				<button
+					id='reset-filters-btn'
+					onClick={() => {
+						resetFilters();
+						setFontWeight();
+					}}
+				>
 					Reset filters
 				</button>
 			</div>
@@ -86,7 +98,18 @@ const Filters = ({
 			<div className='filter'>
 				<div className='filter-title'>Availability</div>
 				<div className='availability'>
-					<input type='checkbox' id='in-stock-checkbox' />
+					<input
+						ref={availabilityInput}
+						onChange={() => {
+							if (availabilityInput.current.checked) {
+								changeAvailability(true);
+							} else {
+								changeAvailability(false);
+							}
+						}}
+						type='checkbox'
+						id='in-stock-checkbox'
+					/>
 					<div className='in-stock'>In stock</div>
 				</div>
 			</div>

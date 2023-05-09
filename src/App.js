@@ -23,7 +23,7 @@ function App() {
 
 	// Initial sort
 	useEffect(() => {
-		sortByPrice();
+		sortByPriceUpdateDisplay();
 	}, [sortMethod]);
 
 	// Apply filters
@@ -43,10 +43,10 @@ function App() {
 			// if (priceRange !== null) {
 			// 	tempArray.filter((product) => product.priceRange === priceRange);
 			// }
-			// if (availability !== null) {
-			// 	tempArray.filter((product) => product.availability === availability);
-			// }
-			sortByPrice(tempArray);
+			if (availability === true) {
+				tempArray = tempArray.filter((product) => product.availability === true);
+			}
+			sortByPriceUpdateDisplay(tempArray);
 		}
 	}, [category, priceRange, availability]);
 
@@ -72,7 +72,7 @@ function App() {
 		setSortMethod(sortMethod);
 	}
 
-	function sortByPrice(productsArray) {
+	function sortByPriceUpdateDisplay(productsArray) {
 		let tempArray;
 		if (productsArray) {
 			tempArray = [...productsArray];
@@ -105,7 +105,7 @@ function App() {
 									changePriceRange={changePriceRange}
 									changeAvailability={changeAvailability}
 									changeSortMethod={changeSortMethod}
-									sortByPrice={sortByPrice}
+									sortByPrice={sortByPriceUpdateDisplay}
 								/>
 							}
 						/>
