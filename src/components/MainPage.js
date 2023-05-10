@@ -1,19 +1,20 @@
 import React from 'react';
 import '../styles/MainPage.scss';
-import mainImg from '../img/fender-guitars.jpg';
+import { Link } from 'react-router-dom';
 
-const MainPage = () => {
+const MainPage = ({ resetFilters }) => {
 	return (
 		<div className='MainPage'>
 			<div className='main-left'>
-				<div className='adv-title'>ELECTRIC GUITARS</div>
+				<div className='adv-title'>ELECTRIC GEAR</div>
 				<div className='adv-content'>Get yours today!</div>
 				<div className='shop-btn-container'>
-					<button id='shop-now-btn'>SHOP NOW</button>
+					<Link to='/browser'>
+						<button id='shop-now-btn' onClick={resetFilters}>
+							SHOP NOW
+						</button>
+					</Link>
 				</div>
-			</div>
-			<div className='main-img-container'>
-				{/* <img id='main-img' src={mainImg} alt='fender-guitars' /> */}
 			</div>
 		</div>
 	);

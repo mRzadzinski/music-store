@@ -69,6 +69,7 @@ function App() {
 		setCategory(null);
 		setPriceRange([null, null]);
 		setAvailability(null);
+		setSortMethod('Low to High');
 	}
 
 	function changeCategory(categoryName) {
@@ -117,7 +118,10 @@ function App() {
 				<Header changeCategory={changeCategory} resetFilters={resetFilters} />
 				<div className='content'>
 					<Routes>
-						<Route path='/' element={<MainPage />} />
+						<Route
+							path='/'
+							element={<MainPage resetFilters={resetFilters} />}
+						/>
 						<Route
 							path='/browser'
 							element={
