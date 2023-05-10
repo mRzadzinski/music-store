@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/Browser/ProductCard.scss';
 
 const ProductCard = (props) => {
 	const { product } = props;
+	const productID = product.id;
 
 	let inStockStatus;
 	if (product.availability) {
@@ -12,14 +14,16 @@ const ProductCard = (props) => {
 	}
 
 	return (
-		<div className='ProductCard'>
-			<img src={product.imgSmall} alt='product-img-card' />
-			<div className='prod-info-card'>
-				<div className='prod-name-card'>{product.name}</div>
-				<div className='prod-availability-card'>{inStockStatus}</div>
-				<div className='prod-price-card'>${product.price}</div>
+		<Link to={`/product-page/${productID}`}>
+			<div className='ProductCard'>
+				<img src={product.imgSmall} alt='product-img-card' />
+				<div className='prod-info-card'>
+					<div className='prod-name-card'>{product.name}</div>
+					<div className='prod-availability-card'>{inStockStatus}</div>
+					<div className='prod-price-card'>${product.price}</div>
+				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

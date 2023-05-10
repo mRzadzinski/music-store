@@ -18,7 +18,6 @@ function App() {
 	const [priceRange, setPriceRange] = useState([null, null]);
 	const [availability, setAvailability] = useState(null);
 
-	const [product, setProduct] = useState(null);
 	const [basketItems, setBasketItems] = useState([]);
 
 	// Initial sort
@@ -133,12 +132,15 @@ function App() {
 									changeAvailability={changeAvailability}
 									changeSortMethod={changeSortMethod}
 									sortByPrice={sortByPriceUpdateDisplay}
+									category={category}
+									priceRange={priceRange}
+									availability={availability}
 								/>
 							}
 						/>
 						<Route
-							path='/product-page'
-							element={<ProductPage product={product} />}
+							path='/product-page/:id'
+							element={<ProductPage displayProducts={displayProducts} />}
 						/>
 						<Route
 							path='/basket'

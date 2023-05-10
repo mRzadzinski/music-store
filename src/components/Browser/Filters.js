@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../../styles/Browser/Filters.scss';
 
 const Filters = ({
@@ -6,6 +6,9 @@ const Filters = ({
 	changeCategory,
 	changePriceRange,
 	changeAvailability,
+	category,
+	priceRange,
+	availability,
 }) => {
 	const allCategory = useRef(null);
 	const guitarsCategory = useRef(null);
@@ -15,6 +18,33 @@ const Filters = ({
 	const minPrice = useRef(null);
 	const maxPrice = useRef(null);
 	const availabilityInput = useRef(null);
+
+	useEffect(() => {
+		if (category) {
+			let cat;
+			if (category === 'all') {
+				cat = allCategory;
+			} else if (category === 'guitar') {
+				cat = guitarsCategory;
+			} else if (category === 'amplifier') {
+				cat = amplifiersCategory;
+			} else if (category === 'effect') {
+				cat = effectsCategory;
+			}
+			setFontWeight(cat);
+		}
+
+		if (priceRange[0]) {
+			minPrice.current.value = priceRange[0];
+		}
+		if (priceRange[1]) {
+			maxPrice.current.value = priceRange[1];
+		}
+
+		if (availability) {
+			availabilityInput.current.checked = true;
+		}
+	}, []);
 
 	function setFontWeight(category) {
 		allCategory.current.classList.remove('fat-text');

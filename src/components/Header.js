@@ -52,9 +52,16 @@ const Header = ({ changeCategory, resetFilters }) => {
 						</Link>
 					</div>
 				</div>
-				<div className='basket-container'>
-					<FontAwesomeIcon icon={faBasketShopping} />
-					<div id='basket-count'>5</div>
+				<div
+					className='basket-container'
+					onClick={() => {
+						resetFilters();
+					}}
+				>
+					<Link to='/basket'>
+						<FontAwesomeIcon icon={faBasketShopping} />
+						<div id='basket-count'>5</div>
+					</Link>
 				</div>
 			</nav>
 		</div>

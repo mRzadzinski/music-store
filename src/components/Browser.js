@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Browser.scss';
 import Filters from './Browser/Filters';
 import Display from './Browser/Display';
@@ -12,6 +13,9 @@ const Browser = (props) => {
 		changeAvailability,
 		sortByPrice,
 		changeSortMethod,
+		category,
+		priceRange,
+		availability,
 	} = props;
 
 	return (
@@ -21,6 +25,9 @@ const Browser = (props) => {
 				changeCategory={changeCategory}
 				changePriceRange={changePriceRange}
 				changeAvailability={changeAvailability}
+				category={category}
+				priceRange={priceRange}
+				availability={availability}
 			/>
 			<Display
 				displayProducts={displayProducts}
