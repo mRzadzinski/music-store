@@ -15,7 +15,7 @@ function App() {
 	const [displayProducts, setDisplayProducts] = useState(products);
 	const [sortMethod, setSortMethod] = useState('Low to High');
 	const [category, setCategory] = useState(null);
-	const [priceRange, setPriceRange] = useState(null);
+	const [priceRange, setPriceRange] = useState([null, null]);
 	const [availability, setAvailability] = useState(null);
 
 	const [product, setProduct] = useState(null);
@@ -40,11 +40,26 @@ function App() {
 					);
 				}
 			}
-			// if (priceRange !== null) {
-			// 	tempArray.filter((product) => product.priceRange === priceRange);
-			// }
+
+			if (priceRange[0] !== null && priceRange[1] !== null) {
+				tempArray = tempArray.filter(
+					(product) =>
+						product.price >= priceRange[0] && product.price <= priceRange[1]
+				);
+			} else if (priceRange[0] !== null) {
+				tempArray = tempArray.filter(
+					(product) => product.price >= priceRange[0]
+				);
+			} else if (priceRange[1] !== null) {
+				tempArray = tempArray.filter(
+					(product) => product.price <= priceRange[1]
+				);
+			}
+
 			if (availability === true) {
-				tempArray = tempArray.filter((product) => product.availability === true);
+				tempArray = tempArray.filter(
+					(product) => product.availability === true
+				);
 			}
 			sortByPriceUpdateDisplay(tempArray);
 		}
@@ -52,7 +67,7 @@ function App() {
 
 	function resetFilters() {
 		setCategory(null);
-		setPriceRange(null);
+		setPriceRange([null, null]);
 		setAvailability(null);
 	}
 
@@ -61,7 +76,15 @@ function App() {
 	}
 
 	function changePriceRange(min, max) {
-		setPriceRange([min, max]);
+		if (min === '') {
+			setPriceRange([null, priceRange[1]]);
+		} else if (max === '') {
+			setPriceRange([priceRange[0], null]);
+		} else if (min === null) {
+			setPriceRange([priceRange[0], max]);
+		} else if (max === null) {
+			setPriceRange([min, priceRange[1]]);
+		}
 	}
 
 	function changeAvailability(availability) {

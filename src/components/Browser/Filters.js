@@ -12,6 +12,8 @@ const Filters = ({
 	const amplifiersCategory = useRef(null);
 	const effectsCategory = useRef(null);
 
+	const minPrice = useRef(null);
+	const maxPrice = useRef(null);
 	const availabilityInput = useRef(null);
 
 	function setFontWeight(category) {
@@ -27,6 +29,12 @@ const Filters = ({
 		}
 	}
 
+	function resetFilterInputs() {
+		minPrice.current.value = '';
+		maxPrice.current.value = '';
+		availabilityInput.current.checked = false;
+	}
+
 	return (
 		<div className='Filters'>
 			<div className='reset-btn-container'>
@@ -35,6 +43,7 @@ const Filters = ({
 					onClick={() => {
 						resetFilters();
 						setFontWeight();
+						resetFilterInputs();
 					}}
 				>
 					Reset filters
@@ -88,9 +97,17 @@ const Filters = ({
 			<div className='filter'>
 				<div className='filter-title'>Price Range</div>
 				<div className='price-range'>
-					<input type='number' />
+					<input
+						type='number'
+						ref={minPrice}
+						onChange={(e) => changePriceRange(e.target.value, null)}
+					/>
 					<span className='price-range-text'>-</span>
-					<input type='number' />
+					<input
+						type='number'
+						ref={maxPrice}
+						onChange={(e) => changePriceRange(null, e.target.value)}
+					/>
 					<span className='price-range-text'>$</span>
 				</div>
 			</div>
