@@ -9,7 +9,7 @@ const Display = (props) => {
 
 	useEffect(() => {
 		sortSelect.current.value = sortMethod;
-	}, []);
+	});
 
 	return (
 		<div className='Display'>
