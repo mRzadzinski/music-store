@@ -135,6 +135,7 @@ function App() {
 									category={category}
 									priceRange={priceRange}
 									availability={availability}
+									sortMethod={sortMethod}
 								/>
 							}
 						/>

@@ -16,6 +16,7 @@ const Browser = (props) => {
 		category,
 		priceRange,
 		availability,
+		sortMethod,
 	} = props;
 
 	return (
@@ -33,6 +34,7 @@ const Browser = (props) => {
 				displayProducts={displayProducts}
 				sortByPrice={sortByPrice}
 				changeSortMethod={changeSortMethod}
+				sortMethod={sortMethod}
 			/>
 		</div>
 	);
