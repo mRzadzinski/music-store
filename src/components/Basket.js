@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Basket.scss';
 import BasketProductCard from './Basket/BasketProductCard';
 
-const Basket = ({ basketItems, updateProductQuantity }) => {
+const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 
 	useEffect(() => {
@@ -34,6 +34,7 @@ const Basket = ({ basketItems, updateProductQuantity }) => {
 							product={item.product}
 							quantity={item.quantity}
 							updateProductQuantity={updateProductQuantity}
+							removeFromBasket={removeFromBasket}
 						/>
 					))}
 				</div>

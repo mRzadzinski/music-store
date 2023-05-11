@@ -20,40 +20,14 @@ function App() {
 	const [displayProducts, setDisplayProducts] = useState(products);
 	const [basketItems, setBasketItems] = useState([]);
 
-	function updateProductQuantity(product, quantity) {
+	function removeFromBasket(product) {
 		const tempBasket = [...basketItems];
-
 		tempBasket.forEach((item) => {
 			if (item.product === product) {
-				item.quantity = quantity;
+				const index = tempBasket.indexOf(item);
+				tempBasket.splice(index, 1);
 			}
 		});
-		setBasketItems(tempBasket);
-	}
-
-	function addToBasket(product, quantity) {
-		const tempBasket = [...basketItems];
-
-		// Check if item is already in the basket
-		let alreadyInBasket = false;
-		tempBasket.forEach((item) => {
-			if (item.product === product) {
-				alreadyInBasket = true;
-				if (item.quantity + quantity > 10) {
-					item.quantity = 10;
-				} else {
-					item.quantity = item.quantity + quantity;
-				}
-			}
-		});
-
-		// Add new item
-		if (!alreadyInBasket) {
-			tempBasket.push({
-				product: product,
-				quantity: quantity,
-			});
-		}
 		setBasketItems(tempBasket);
 	}
 
@@ -148,10 +122,51 @@ function App() {
 		setDisplayProducts(tempArray);
 	}
 
+	function addToBasket(product, quantity) {
+		const tempBasket = [...basketItems];
+
+		// Check if item is already in the basket
+		let alreadyInBasket = false;
+		tempBasket.forEach((item) => {
+			if (item.product === product) {
+				alreadyInBasket = true;
+				if (item.quantity + quantity > 10) {
+					item.quantity = 10;
+				} else {
+					item.quantity = item.quantity + quantity;
+				}
+			}
+		});
+
+		// Add new item
+		if (!alreadyInBasket) {
+			tempBasket.push({
+				product: product,
+				quantity: quantity,
+			});
+		}
+		setBasketItems(tempBasket);
+	}
+
+	function updateProductQuantity(product, quantity) {
+		const tempBasket = [...basketItems];
+
+		tempBasket.forEach((item) => {
+			if (item.product === product) {
+				item.quantity = quantity;
+			}
+		});
+		setBasketItems(tempBasket);
+	}
+
 	return (
 		<BrowserRouter>
 			<div className='App'>
-				<Header changeCategory={changeCategory} resetFilters={resetFilters} basketItems={basketItems} />
+				<Header
+					changeCategory={changeCategory}
+					resetFilters={resetFilters}
+					basketItems={basketItems}
+				/>
 				<div className='content'>
 					<Routes>
 						<Route
@@ -188,7 +203,13 @@ function App() {
 						/>
 						<Route
 							path='/basket'
-							element={<Basket basketItems={basketItems} updateProductQuantity={updateProductQuantity} />}
+							element={
+								<Basket
+									basketItems={basketItems}
+									updateProductQuantity={updateProductQuantity}
+									removeFromBasket={removeFromBasket}
+								/>
+							}
 						/>
 					</Routes>
 				</div>

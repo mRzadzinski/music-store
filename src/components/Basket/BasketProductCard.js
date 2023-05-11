@@ -3,7 +3,12 @@ import '../../styles/Basket/BasketProductCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const BasketProductCard = ({ product, quantity, updateProductQuantity }) => {
+const BasketProductCard = ({
+	product,
+	quantity,
+	updateProductQuantity,
+	removeFromBasket,
+}) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [basePrice, setBasePrice] = useState(null);
 	const quantityInput = useRef(null);
@@ -53,14 +58,14 @@ const BasketProductCard = ({ product, quantity, updateProductQuantity }) => {
 				</div>
 			</div>
 			<div className='card-right'>
-				<div className='remove-item'>
+				<div className='remove-item' onClick={() => removeFromBasket(product)}>
 					<FontAwesomeIcon
 						icon={faTrash}
 						size='lg'
 						style={{ color: '#ababab' }}
 					/>
 				</div>
-				<div className="prices">
+				<div className='prices'>
 					{basePrice}
 					<div className='prod-price-basket'>${totalPrice}</div>
 				</div>
