@@ -1,9 +1,9 @@
 .ProductPage {
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 
 	width: 100%;
-    max-width: 1500px;
+	max-width: 1500px;
 }
 
 .product-info {
@@ -11,7 +11,7 @@
 	flex-direction: column;
 
 	width: 100%;
-    min-width: 510px;
+	min-width: 510px;
 
 	.arrow-container {
 		display: flex;
@@ -50,13 +50,13 @@
 
 		padding-left: 35px;
 		padding-right: 35px;
-
 		height: 500px;
 	}
 
 	#prod-img-page {
 		height: 500px;
 		width: 100%;
+		max-width: 800px;
 		object-fit: contain;
 	}
 
@@ -70,8 +70,8 @@
 .buying-info {
 	width: 30vw;
 	min-width: 200px;
-    max-width: 500px;
-    margin-right: 20px;
+	max-width: 500px;
+	margin-right: 20px;
 
 	.prod-price-page {
 		margin-top: 150px;
@@ -81,7 +81,7 @@
 
 	.prod-availability-page {
 		margin-top: 5px;
-        margin-bottom: 30px;
+		margin-bottom: 30px;
 	}
 
 	.in-stock-true-page,
@@ -97,42 +97,48 @@
 		color: rgb(250, 104, 0);
 	}
 
-    .add-count-container {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
+	.add-count-container {
+		display: flex;
+		align-items: center;
+		gap: 20px;
 
-    .add-count {
-        width: 55px;
-        min-width: 55px;
-        height: 40px;
+		margin-bottom: 15px;
+	}
 
-        border-radius: 20px;
+	.add-count {
+		width: 55px;
+		min-width: 55px;
+		height: 40px;
 
-        text-align: center;
-    }
+		border-radius: 20px;
 
-    #add-to-basket-btn {
-        width: 200px;
-        height: 50px;
-    
-        border: none;
-        border-radius: 30px;
-    
-        font-size: 17px;
-        font-weight: 700;
-    
-        color: white;
-        background-color: #000000;
-        cursor: pointer;
+		text-align: center;
+	}
 
-        &:hover {
-            background-color: rgb(44, 44, 44);
-        }
+	#add-to-basket-btn {
+		width: 200px;
+		height: 50px;
 
-        &:active {
-            background-color: rgb(87, 87, 87);
-        }
-    }
+		border: none;
+		border-radius: 30px;
+
+		font-size: 17px;
+		font-weight: 700;
+
+		color: white;
+		background-color: #000000;
+		cursor: pointer;
+
+		&:hover {
+			background-color: rgb(44, 44, 44);
+		}
+
+		&:active {
+			background-color: rgb(87, 87, 87);
+		}
+	}
+
+	.too-many-info {
+		font-size: 14px;
+	}
 }

@@ -12,13 +12,39 @@ import products from './products-data';
 function App() {
 	const [initialRender, setInitialRender] = useState(true);
 
-	const [displayProducts, setDisplayProducts] = useState(products);
 	const [sortMethod, setSortMethod] = useState('Low to High');
 	const [category, setCategory] = useState(null);
 	const [priceRange, setPriceRange] = useState([null, null]);
 	const [availability, setAvailability] = useState(null);
 
+	const [displayProducts, setDisplayProducts] = useState(products);
 	const [basketItems, setBasketItems] = useState([]);
+
+	function addToBasket(product, quantity) {
+		const tempBasket = [...basketItems];
+
+		// Check if item is already in the basket
+		let alreadyInBasket = false;
+		tempBasket.forEach((item) => {
+			if (item.product === product) {
+				alreadyInBasket = true;
+				if (item.quantity + quantity > 10) {
+					item.quantity = 10;
+				} else {
+					item.quantity = item.quantity + quantity;
+				}
+			}
+		});
+
+		// Add new item
+		if (!alreadyInBasket) {
+			tempBasket.push({
+				product: product,
+				quantity: quantity,
+			});
+		}
+		setBasketItems(tempBasket);
+	}
 
 	// Initial sort
 	useEffect(() => {
@@ -141,7 +167,13 @@ function App() {
 						/>
 						<Route
 							path='/product-page/:id'
-							element={<ProductPage displayProducts={displayProducts} />}
+							element={
+								<ProductPage
+									displayProducts={displayProducts}
+									basketItems={basketItems}
+									addToBasket={addToBasket}
+								/>
+							}
 						/>
 						<Route
 							path='/basket'

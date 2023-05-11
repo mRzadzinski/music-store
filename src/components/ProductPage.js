@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import '../styles/ProductPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-const ProductPage = (props) => {
-	const { displayProducts } = props;
+const ProductPage = ({ displayProducts, addToBasket, basketItems }) => {
 	const { id } = useParams();
+	const quantity = useRef(null);
+	const [tooManyInfo, setTooManyInfo] = useState(null);
 
 	let product;
 	displayProducts.forEach((prod) => {
@@ -14,13 +15,26 @@ const ProductPage = (props) => {
 			product = prod;
 		}
 	});
-	console.log(product);
 
 	let inStockStatus;
 	if (product.availability) {
 		inStockStatus = <span className='in-stock-true-page'>In stock</span>;
 	} else {
 		inStockStatus = <span className='in-stock-false-page'>On request</span>;
+	}
+
+	function checkIfTooMany() {
+		basketItems.forEach((item) => {
+			if (item.product === product) {
+				if (item.quantity + +quantity.current.value > 10) {
+					setTooManyInfo(
+						<div className='too-many-info'>
+							You can have up to 10 units of this item in the basket.
+						</div>
+					);
+				}
+			}
+		});
 	}
 
 	return (
@@ -43,7 +57,7 @@ const ProductPage = (props) => {
 				<div className='prod-availability-page'>{inStockStatus}</div>
 
 				<div className='add-count-container'>
-					<select name='' className='add-count'>
+					<select name='' className='add-count' ref={quantity}>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
 						<option value='3'>3</option>
@@ -55,8 +69,17 @@ const ProductPage = (props) => {
 						<option value='9'>9</option>
 						<option value='10'>10</option>
 					</select>
-					<button id='add-to-basket-btn'>ADD TO BASKET</button>
+					<button
+						id='add-to-basket-btn'
+						onClick={() => {
+							checkIfTooMany();
+							addToBasket(product, +quantity.current.value);
+						}}
+					>
+						ADD TO BASKET
+					</button>
 				</div>
+				{tooManyInfo}
 			</div>
 		</div>
 	);
