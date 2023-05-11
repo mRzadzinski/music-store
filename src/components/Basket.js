@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Basket.scss';
 import BasketProductCard from './Basket/BasketProductCard';
 
 const Basket = ({ basketItems, updateProductQuantity }) => {
+	const [totalPrice, setTotalPrice] = useState(0);
+
+	useEffect(() => {
+		let total = 0;
+		basketItems.forEach((item) => {
+			total += item.product.price * item.quantity;
+		});
+		setTotalPrice(total);
+	}, [basketItems]);
+
 	const basketEmpty = (
 		<div className='Basket'>
 			<div className='empty-basket'>
@@ -32,7 +42,7 @@ const Basket = ({ basketItems, updateProductQuantity }) => {
 			<div className='total-basket'>
 				<div className='total-container'>
 					<div className='total-title'>Total</div>
-					<div className='total-amount'>$5873</div>
+					<div className='total-amount'>${totalPrice}</div>
 				</div>
 				<button className='to-checkout-btn'>TO CHECKOUT</button>
 			</div>

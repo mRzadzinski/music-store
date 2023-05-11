@@ -1,10 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../../styles/Basket/BasketProductCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const BasketProductCard = ({ product, quantity, updateProductQuantity }) => {
+	const [totalPrice, setTotalPrice] = useState(0);
+	const [basePrice, setBasePrice] = useState(null);
 	const quantityInput = useRef(null);
+
+	useEffect(() => {
+		setTotalPrice(product.price * quantity);
+
+		if (quantity > 1) {
+			const priceDiv = <div className='base-price'>${product.price}</div>;
+			setBasePrice(priceDiv);
+		} else {
+			setBasePrice(null);
+		}
+	}, [quantity]);
+
 	return (
 		<div className='BasketProductCard'>
 			<div className='card-left'>
@@ -39,7 +53,6 @@ const BasketProductCard = ({ product, quantity, updateProductQuantity }) => {
 				</div>
 			</div>
 			<div className='card-right'>
-				<div className='card-right-empty'></div>
 				<div className='remove-item'>
 					<FontAwesomeIcon
 						icon={faTrash}
@@ -47,7 +60,10 @@ const BasketProductCard = ({ product, quantity, updateProductQuantity }) => {
 						style={{ color: '#ababab' }}
 					/>
 				</div>
-				<div className='prod-price-basket'>${product.price}</div>
+				<div className="prices">
+					{basePrice}
+					<div className='prod-price-basket'>${totalPrice}</div>
+				</div>
 			</div>
 		</div>
 	);

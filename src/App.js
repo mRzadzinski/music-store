@@ -28,6 +28,7 @@ function App() {
 				item.quantity = quantity;
 			}
 		});
+		setBasketItems(tempBasket);
 	}
 
 	function addToBasket(product, quantity) {
