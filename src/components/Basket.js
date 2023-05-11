@@ -4,6 +4,7 @@ import BasketProductCard from './Basket/BasketProductCard';
 
 const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
+	const [noCheckoutInfo, setNoCheckoutInfo] = useState(null);
 
 	useEffect(() => {
 		let total = 0;
@@ -12,6 +13,11 @@ const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 		});
 		setTotalPrice(total);
 	}, [basketItems]);
+
+	function handleCheckoutClick() {
+		const info = <div className='checkout-info'>There is no checkout :)</div>;
+		setNoCheckoutInfo(info);
+	}
 
 	const basketEmpty = (
 		<div className='Basket'>
@@ -45,7 +51,10 @@ const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 					<div className='total-title'>Total</div>
 					<div className='total-amount'>${totalPrice}</div>
 				</div>
-				<button className='to-checkout-btn'>TO CHECKOUT</button>
+				<button className='to-checkout-btn' onClick={handleCheckoutClick}>
+					TO CHECKOUT
+				</button>
+				{noCheckoutInfo}
 			</div>
 		</div>
 	);
