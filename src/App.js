@@ -20,6 +20,16 @@ function App() {
 	const [displayProducts, setDisplayProducts] = useState(products);
 	const [basketItems, setBasketItems] = useState([]);
 
+	function updateProductQuantity(product, quantity) {
+		const tempBasket = [...basketItems];
+
+		tempBasket.forEach((item) => {
+			if (item.product === product) {
+				item.quantity = quantity;
+			}
+		});
+	}
+
 	function addToBasket(product, quantity) {
 		const tempBasket = [...basketItems];
 
@@ -140,7 +150,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div className='App'>
-				<Header changeCategory={changeCategory} resetFilters={resetFilters} />
+				<Header changeCategory={changeCategory} resetFilters={resetFilters} basketItems={basketItems} />
 				<div className='content'>
 					<Routes>
 						<Route
@@ -177,7 +187,7 @@ function App() {
 						/>
 						<Route
 							path='/basket'
-							element={<Basket basketItems={basketItems} />}
+							element={<Basket basketItems={basketItems} updateProductQuantity={updateProductQuantity} />}
 						/>
 					</Routes>
 				</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Basket.scss';
 import BasketProductCard from './Basket/BasketProductCard';
 
-const Basket = ({ basketItems }) => {
+const Basket = ({ basketItems, updateProductQuantity }) => {
 	const basketEmpty = (
 		<div className='Basket'>
 			<div className='empty-basket'>
@@ -19,7 +19,12 @@ const Basket = ({ basketItems }) => {
 				<div className='title-basket'>Basket</div>
 				<div className='display-basket'>
 					{basketItems.map((item) => (
-						<BasketProductCard key={item.product.id} product={item.product} />
+						<BasketProductCard
+							key={item.product.id}
+							product={item.product}
+							quantity={item.quantity}
+							updateProductQuantity={updateProductQuantity}
+						/>
 					))}
 				</div>
 			</div>

@@ -1,10 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import '../styles/Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 
-const Header = ({ changeCategory, resetFilters }) => {
+const Header = ({ changeCategory, resetFilters, basketItems }) => {
+	const [basketItemsCount, setBasketItemsCount] = useState(0);
+
+	useEffect(() => {
+		let count = 0;
+		basketItems.forEach((item) => {
+			count += item.quantity;
+		});
+		setBasketItemsCount(count);
+	}, [basketItems]);
+
 	return (
 		<div className='Header'>
 			<div
@@ -18,51 +28,51 @@ const Header = ({ changeCategory, resetFilters }) => {
 			<nav>
 				<div className='basket-counterpart'></div>
 				<div className='categories'>
-					<div
-						className='category-container'
-						onClick={() => {
-							resetFilters();
-							changeCategory('guitar');
-						}}
-					>
-						<Link to='/browser'>
+					<NavLink to='/browser' className='navLink'>
+						<div
+							className='category-container'
+							onClick={() => {
+								resetFilters();
+								changeCategory('guitar');
+							}}
+						>
 							<li className='category'>Guitars</li>
-						</Link>
-					</div>
-					<div
-						className='category-container'
-						onClick={() => {
-							resetFilters();
-							changeCategory('amplifier');
-						}}
-					>
-						<Link to='/browser'>
+						</div>
+					</NavLink>
+					<NavLink to='/browser' className='navLink'>
+						<div
+							className='category-container'
+							onClick={() => {
+								resetFilters();
+								changeCategory('amplifier');
+							}}
+						>
 							<li className='category'>Amplifiers</li>
-						</Link>
-					</div>
+						</div>
+					</NavLink>
+					<NavLink to='/browser' className='navLink'>
+						<div
+							className='category-container'
+							onClick={() => {
+								resetFilters();
+								changeCategory('effect');
+							}}
+						>
+							<li className='category'>Effects</li>
+						</div>
+					</NavLink>
+				</div>
+				<NavLink to='/basket' className='navLink'>
 					<div
-						className='category-container'
+						className='basket-container'
 						onClick={() => {
 							resetFilters();
-							changeCategory('effect');
 						}}
 					>
-						<Link to='/browser'>
-							<li className='category'>Effects</li>
-						</Link>
-					</div>
-				</div>
-				<div
-					className='basket-container'
-					onClick={() => {
-						resetFilters();
-					}}
-				>
-					<Link to='/basket'>
 						<FontAwesomeIcon icon={faBasketShopping} />
-						<div id='basket-count'>5</div>
-					</Link>
-				</div>
+						<div id='basket-count'>{basketItemsCount}</div>
+					</div>
+				</NavLink>
 			</nav>
 		</div>
 	);

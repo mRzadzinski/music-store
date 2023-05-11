@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import '../../styles/Basket/BasketProductCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const BasketProductCard = (props) => {
-	const { product } = props;
-
+const BasketProductCard = ({ product, quantity, updateProductQuantity }) => {
+	const quantityInput = useRef(null);
 	return (
 		<div className='BasketProductCard'>
 			<div className='card-left'>
@@ -17,7 +16,15 @@ const BasketProductCard = (props) => {
 				<div className='name-count-basket'>
 					<div className='name-count-basket-empty'></div>
 					<div className='prod-name-basket'>{product.name}</div>
-					<select name='' className='add-count'>
+					<select
+						ref={quantityInput}
+						defaultValue={quantity}
+						name=''
+						className='add-count'
+						onChange={() =>
+							updateProductQuantity(product, +quantityInput.current.value)
+						}
+					>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
 						<option value='3'>3</option>
