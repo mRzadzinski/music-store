@@ -15,7 +15,7 @@ Online store with guitar gear built in React.
 - Sort by price
 - Add to basket from product page
 - Modify quantity or remove products from the basket
-- Check total value
+- Check total basket value
 
 ## Technologies
 
@@ -35,6 +35,6 @@ Online store with guitar gear built in React.
 
 - This project was an assignment from The Odin Project course: [Shopping Cart](https://www.theodinproject.com/lessons/node-path-javascript-shopping-cart)
 - Design inspirations:
-  1. https://www.thomannmusic.com/
-  2. https://www.fender.com/
-  3. https://allegro.pl/
+  - https://www.thomannmusic.com/
+  - https://www.fender.com/
+  - https://allegro.pl/
