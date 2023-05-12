@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/Browser.scss';
 import Filters from './Browser/Filters';
 import Display from './Browser/Display';

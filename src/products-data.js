@@ -196,7 +196,7 @@ const products = [
 		imgSmall: images['strymon-bluesky-small.jpeg'],
 		imgLarge: images['strymon-bluesky-large.jpeg'],
 		description:
-			'The Strymon blueSky Reverberator has nearly every reverb sound you\'ll ever need for the stage and studio in pedal form: lush studio plates, subtle room ambience, and spanky tube-amp springs, each with real-time controls for instant tweaks.\n\nStandard decay, damping, and mix controls will have you dialing in your favorite reverb sounds in no time. And for more advanced textures, Modulation mode lets you color your reverbs with subtle tonal movement, and Shimmer mode gives endless sustain to your chords and leads for big-time drama.',
+			"The Strymon blueSky Reverberator has nearly every reverb sound you'll ever need for the stage and studio in pedal form: lush studio plates, subtle room ambience, and spanky tube-amp springs, each with real-time controls for instant tweaks.\n\nStandard decay, damping, and mix controls will have you dialing in your favorite reverb sounds in no time. And for more advanced textures, Modulation mode lets you color your reverbs with subtle tonal movement, and Shimmer mode gives endless sustain to your chords and leads for big-time drama.",
 	},
 	{
 		category: 'effect',
@@ -209,7 +209,6 @@ const products = [
 		description:
 			"This is the Swiss Army knife of wah pedals.\n\nIts six-position Range Selector control allows you to choose from six different frequency ranges, each position based on the unique tonal characteristics of our most prized wah specimens. The Variable Q control allows you to take the 535Q's response from narrow and sharp to broad and subtle with the twist of a control. Once you've got your sound, make sure it gets heard with the switchable boost—adjustable up to +18dB—that can create endless sustain on any note.",
 	},
-
 ];
 
 export default products;

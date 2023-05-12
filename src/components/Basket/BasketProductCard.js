@@ -38,7 +38,6 @@ const BasketProductCard = ({
 					<select
 						ref={quantityInput}
 						defaultValue={quantity}
-						name=''
 						className='add-count'
 						onChange={() =>
 							updateProductQuantity(product, +quantityInput.current.value)

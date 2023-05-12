@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import '../styles/ProductPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

@@ -20,17 +20,6 @@ function App() {
 	const [displayProducts, setDisplayProducts] = useState(products);
 	const [basketItems, setBasketItems] = useState([]);
 
-	function removeFromBasket(product) {
-		const tempBasket = [...basketItems];
-		tempBasket.forEach((item) => {
-			if (item.product === product) {
-				const index = tempBasket.indexOf(item);
-				tempBasket.splice(index, 1);
-			}
-		});
-		setBasketItems(tempBasket);
-	}
-
 	// Initial sort
 	useEffect(() => {
 		sortByPriceUpdateDisplay();
@@ -130,6 +119,7 @@ function App() {
 		tempBasket.forEach((item) => {
 			if (item.product === product) {
 				alreadyInBasket = true;
+				// Limit quantity to 10 units per product
 				if (item.quantity + quantity > 10) {
 					item.quantity = 10;
 				} else {
@@ -154,6 +144,18 @@ function App() {
 		tempBasket.forEach((item) => {
 			if (item.product === product) {
 				item.quantity = quantity;
+			}
+		});
+		setBasketItems(tempBasket);
+	}
+
+	function removeFromBasket(product) {
+		const tempBasket = [...basketItems];
+		
+		tempBasket.forEach((item) => {
+			if (item.product === product) {
+				const index = tempBasket.indexOf(item);
+				tempBasket.splice(index, 1);
 			}
 		});
 		setBasketItems(tempBasket);

@@ -15,8 +15,7 @@ const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 	}, [basketItems]);
 
 	function handleCheckoutClick() {
-		const info = <div className='checkout-info'>There is no checkout :)</div>;
-		setNoCheckoutInfo(info);
+		setNoCheckoutInfo(<div className='checkout-info'>There is no checkout :)</div>);
 	}
 
 	const basketEmpty = (

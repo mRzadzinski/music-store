@@ -65,14 +65,6 @@ const Filters = ({
 		availabilityInput.current.checked = false;
 	}
 
-	function toggleAvailabilityCheckbox() {
-		if (availabilityInput.current.checked === false) {
-			availabilityInput.current.checked = true;
-		} else {
-			availabilityInput.current.checked = false;
-		}
-	}
-
 	return (
 		<div className='Filters'>
 			<div className='reset-btn-container'>
@@ -80,8 +72,8 @@ const Filters = ({
 					id='reset-filters-btn'
 					onClick={() => {
 						resetFilters();
-						setFontWeight();
 						resetFilterInputs();
+						setFontWeight();
 					}}
 				>
 					Reset filters
@@ -165,7 +157,10 @@ const Filters = ({
 						type='checkbox'
 						id='in-stock-checkbox'
 					/>
-					<div className='in-stock' onClick={() => availabilityInput.current.click()}>
+					<div
+						className='in-stock'
+						onClick={() => availabilityInput.current.click()}
+					>
 						In stock
 					</div>
 				</div>

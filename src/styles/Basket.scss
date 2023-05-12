@@ -8,23 +8,20 @@
 }
 
 .empty-basket {
-    width: 100%;
-    padding-top: 30px;
-    padding-left: 50px;
+	width: 100%;
+	padding-top: 30px;
+	padding-left: 50px;
 
+	.empty-basket-title {
+		margin-bottom: 20px;
+		font-size: 32px;
+		font-weight: 500;
+	}
 
-    .empty-basket-title {
-        margin-bottom: 20px;
-        font-size: 32px;
-        font-weight: 500;
-    }
-    
-    .empty-basket-text {
-        font-size: 18px;
-    }
+	.empty-basket-text {
+		font-size: 18px;
+	}
 }
-
-
 
 .products-basket {
 	display: flex;

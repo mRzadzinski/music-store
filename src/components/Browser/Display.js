@@ -3,7 +3,7 @@ import '../../styles/Browser/Display.scss';
 import ProductCard from './ProductCard';
 
 const Display = (props) => {
-	const { displayProducts, changeSortMethod, changeProduct, sortMethod } =
+	const { displayProducts, changeSortMethod, sortMethod } =
 		props;
 	const sortSelect = useRef(null);
 
@@ -33,7 +33,6 @@ const Display = (props) => {
 						<ProductCard
 							product={product}
 							key={product.id}
-							changeProduct={changeProduct}
 						/>
 					);
 				})}
