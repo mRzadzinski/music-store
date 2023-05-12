@@ -2,7 +2,7 @@
 
 ![interface](./src/img/screenshot.png)
 
-[Check live!](ulr)
+[Check live!](https://mrzadzinski.github.io/music-store/)
 
 Online store with guitar gear built in React.
 

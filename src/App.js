@@ -1,5 +1,5 @@
 import './styles/App.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MainPage from './components/MainPage';
@@ -162,7 +162,7 @@ function App() {
 	}
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<div className='App'>
 				<Header
 					changeCategory={changeCategory}
@@ -217,7 +217,7 @@ function App() {
 				</div>
 				<Footer />
 			</div>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
 
