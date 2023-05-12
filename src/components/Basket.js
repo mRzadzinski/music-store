@@ -24,7 +24,7 @@ const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 			<div className='empty-basket'>
 				<div className='empty-basket-title'>Your basket is empty</div>
 				<div className='empty-basket-text'>
-					Check our electric guitars, amplifiers and effects!{' '}
+					Check our electric guitars, amplifiers and effects!
 				</div>
 			</div>
 		</div>

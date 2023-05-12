@@ -65,6 +65,14 @@ const Filters = ({
 		availabilityInput.current.checked = false;
 	}
 
+	function toggleAvailabilityCheckbox() {
+		if (availabilityInput.current.checked === false) {
+			availabilityInput.current.checked = true;
+		} else {
+			availabilityInput.current.checked = false;
+		}
+	}
+
 	return (
 		<div className='Filters'>
 			<div className='reset-btn-container'>
@@ -157,7 +165,9 @@ const Filters = ({
 						type='checkbox'
 						id='in-stock-checkbox'
 					/>
-					<div className='in-stock'>In stock</div>
+					<div className='in-stock' onClick={() => availabilityInput.current.click()}>
+						In stock
+					</div>
 				</div>
 			</div>
 		</div>

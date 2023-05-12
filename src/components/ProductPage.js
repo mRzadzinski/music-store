@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import '../styles/ProductPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -40,11 +40,11 @@ const ProductPage = ({ displayProducts, addToBasket, basketItems }) => {
 	return (
 		<div className='ProductPage'>
 			<div className='product-info'>
-				<div className='arrow-container'>
-					<Link to='/browser'>
+				<NavLink to='/browser'>
+					<div className='arrow-container'>
 						<FontAwesomeIcon icon={faArrowLeft} size='2x' />
-					</Link>
-				</div>
+					</div>
+				</NavLink>
 				<div className='prod-name-page'>{product.name}</div>
 				<div className='prod-img-container-page'>
 					<img src={product.imgLarge} alt='product-img' id='prod-img-page' />
