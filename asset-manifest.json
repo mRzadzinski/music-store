@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/music-store/static/css/main.df386b0a.css",
-    "main.js": "/music-store/static/js/main.64537d13.js",
+    "main.js": "/music-store/static/js/main.0ac26f13.js",
     "static/media/fender-guitars.jpg": "/music-store/static/media/fender-guitars.39383c028aa9c4de4d38.jpg",
     "static/media/vemuram-large.jpeg": "/music-store/static/media/vemuram-large.383c6bcfc461b0ba3bfb.jpeg",
     "static/media/deluxe-reverb-large.jpeg": "/music-store/static/media/deluxe-reverb-large.95351c633a31118093a7.jpeg",
@@ -25,10 +25,10 @@
     "static/media/tone-king-small.jpeg": "/music-store/static/media/tone-king-small.c3a40ade78cb72bc36d1.jpeg",
     "index.html": "/music-store/index.html",
     "main.df386b0a.css.map": "/music-store/static/css/main.df386b0a.css.map",
-    "main.64537d13.js.map": "/music-store/static/js/main.64537d13.js.map"
+    "main.0ac26f13.js.map": "/music-store/static/js/main.0ac26f13.js.map"
   },
   "entrypoints": [
     "static/css/main.df386b0a.css",
-    "static/js/main.64537d13.js"
+    "static/js/main.0ac26f13.js"
   ]
 }
