@@ -70,7 +70,7 @@ const Header = ({ changeCategory, resetFilters, basketItems }) => {
 						}}
 					>
 						<FontAwesomeIcon icon={faBasketShopping} />
-						<div id='basket-count'>{basketItemsCount}</div>
+						<div id='basket-count' data-testid='basket-count'>{basketItemsCount}</div>
 					</div>
 				</NavLink>
 			</nav>

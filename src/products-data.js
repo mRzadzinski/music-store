@@ -1,3 +1,5 @@
+import requireContext from 'require-context.macro';
+
 function importAllImages(obj) {
 	const images = {};
 	obj.keys().forEach((item) => {
@@ -7,7 +9,7 @@ function importAllImages(obj) {
 }
 
 const images = importAllImages(
-	require.context('./img/gear/', false, /\.(png|jpe?g)$/)
+	requireContext('./img/gear/', false, /\.(png|jpe?g)$/)
 );
 
 const products = [
