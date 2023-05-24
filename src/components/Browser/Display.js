@@ -12,7 +12,7 @@ const Display = (props) => {
 	});
 
 	return (
-		<div className='Display'>
+		<div className='Display' data-testid='Display'>
 			<div className='sort'>
 				<label htmlFor='price-sort'>Sort by Price:</label>
 				<select

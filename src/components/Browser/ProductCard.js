@@ -15,7 +15,7 @@ const ProductCard = (props) => {
 
 	return (
 		<Link to={`/product-page/${productID}`}>
-			<div className='ProductCard'>
+			<div className='ProductCard' data-testid='ProductCard'>
 				<img src={product.imgSmall} alt='product-img-card' />
 				<div className='prod-info-card'>
 					<div className='prod-name-card'>{product.name}</div>

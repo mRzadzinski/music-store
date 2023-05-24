@@ -31,15 +31,3 @@ describe('Test Browser', () => {
 		expect(browser).toBeInTheDocument();
 	});
 });
-
-// const resetFilters = jest.fn();
-// const changeCategory = jest.fn();
-// const sortByPrice = jest.fn();
-// const changeAvailability = jest.fn();
-// const changePriceRange = jest.fn();
-// const changeSortMethod = jest.fn();
-// const category = null;
-// const priceRange = [null, null];
-// const availability = null;
-// const displayProducts = [];
-// const sortMethod = 'Low to High';
