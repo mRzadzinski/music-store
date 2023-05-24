@@ -44,7 +44,7 @@ const Filters = ({
 		if (availability) {
 			availabilityInput.current.checked = true;
 		}
-	}, []);
+	}, [category]);
 
 	function setFontWeight(category) {
 		allCategory.current.classList.remove('fat-text');
