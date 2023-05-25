@@ -44,7 +44,7 @@ describe('Test Header', () => {
 		expect(resetFilters).toHaveBeenCalled();
 	});
 
-	test('navLinks call changeCategory with proper parameters', async () => {
+	test('navLinks call changeCategory with proper arguments', async () => {
 		const changeCategory = jest.fn();
 		const resetFilters = jest.fn();
 

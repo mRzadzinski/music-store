@@ -128,12 +128,14 @@ const Filters = ({
 				<div className='filter-title'>Price Range</div>
 				<div className='price-range'>
 					<input
+						data-testid='minPrice'
 						type='number'
 						ref={minPrice}
 						onChange={(e) => changePriceRange(e.target.value, null)}
 					/>
 					<span className='price-range-text'>-</span>
 					<input
+						data-testid='maxPrice'
 						type='number'
 						ref={maxPrice}
 						onChange={(e) => changePriceRange(null, e.target.value)}
@@ -146,6 +148,7 @@ const Filters = ({
 				<div className='filter-title'>Availability</div>
 				<div className='availability'>
 					<input
+						data-testid='in-stock-checkbox'
 						ref={availabilityInput}
 						onChange={() => {
 							if (availabilityInput.current.checked) {
