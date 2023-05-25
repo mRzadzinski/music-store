@@ -85,7 +85,7 @@ describe('Test Display', () => {
 		expect(changeSortMethod).toHaveBeenLastCalledWith('Low to High');
 	});
 
-	test('renders proper number of products', () => {
+	test('renders correct number of products', () => {
 		render(
 			<BrowserRouter>
 				<Display

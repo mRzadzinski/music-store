@@ -17,7 +17,11 @@ const BasketProductCard = ({
 		setTotalPrice(product.price * quantity);
 
 		if (quantity > 1) {
-			const priceDiv = <div className='base-price'>${product.price}</div>;
+			const priceDiv = (
+				<div className='base-price' data-testid='base-price'>
+					${product.price}
+				</div>
+			);
 			setBasePrice(priceDiv);
 		} else {
 			setBasePrice(null);
@@ -25,7 +29,7 @@ const BasketProductCard = ({
 	}, [quantity]);
 
 	return (
-		<div className='BasketProductCard'>
+		<div className='BasketProductCard' data-testid='BasketProductCard'>
 			<div className='card-left'>
 				<img
 					src={product.imgSmall}
@@ -57,7 +61,11 @@ const BasketProductCard = ({
 				</div>
 			</div>
 			<div className='card-right'>
-				<div className='remove-item' onClick={() => removeFromBasket(product)}>
+				<div
+					className='remove-item'
+					data-testid='trash-icon'
+					onClick={() => removeFromBasket(product)}
+				>
 					<FontAwesomeIcon
 						icon={faTrash}
 						size='lg'
@@ -66,7 +74,9 @@ const BasketProductCard = ({
 				</div>
 				<div className='prices'>
 					{basePrice}
-					<div className='prod-price-basket'>${totalPrice}</div>
+					<div className='prod-price-basket' data-testid='total-product-price'>
+						${totalPrice}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -48,7 +48,7 @@ const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 			<div className='total-basket'>
 				<div className='total-container'>
 					<div className='total-title'>Total</div>
-					<div className='total-amount'>${totalPrice}</div>
+					<div className='total-amount' data-testid='total-amount'>${totalPrice}</div>
 				</div>
 				<button className='to-checkout-btn' onClick={handleCheckoutClick}>
 					TO CHECKOUT
