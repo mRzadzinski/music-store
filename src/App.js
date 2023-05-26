@@ -162,7 +162,6 @@ function App() {
 	}
 
 	return (
-		<HashRouter>
 			<div className='App'>
 				<Header
 					changeCategory={changeCategory}
@@ -217,7 +216,6 @@ function App() {
 				</div>
 				<Footer />
 			</div>
-		</HashRouter>
 	);
 }
 

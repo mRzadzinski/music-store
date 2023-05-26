@@ -7,6 +7,13 @@ import Header from '../components/Header';
 import App from '../App';
 
 const basketItems = [{ quantity: 1 }, { quantity: 1 }, { quantity: 1 }];
+let changeCategory;
+let resetFilters;
+
+beforeEach(() => {
+	changeCategory = jest.fn();
+	resetFilters = jest.fn();
+});
 
 afterEach(() => {
 	jest.clearAllMocks();
@@ -14,7 +21,15 @@ afterEach(() => {
 
 describe('Test Header', () => {
 	test('renders title and navbar', () => {
-		render(<App />);
+		render(
+			<BrowserRouter>
+				<Header
+					basketItems={basketItems}
+					changeCategory={changeCategory}
+					resetFilters={resetFilters}
+				/>
+			</BrowserRouter>
+		);
 
 		const title = screen.getByText('GUITAR-GEAR');
 		const navbar = screen.getByRole('navigation');
@@ -24,9 +39,6 @@ describe('Test Header', () => {
 	});
 
 	test('clicking title calls resetFilters', async () => {
-		const changeCategory = jest.fn();
-		const resetFilters = jest.fn();
-
 		const user = userEvent.setup();
 		render(
 			<BrowserRouter>
@@ -45,9 +57,6 @@ describe('Test Header', () => {
 	});
 
 	test('navLinks call changeCategory with proper arguments', async () => {
-		const changeCategory = jest.fn();
-		const resetFilters = jest.fn();
-
 		const user = userEvent.setup();
 		render(
 			<BrowserRouter>
@@ -72,9 +81,6 @@ describe('Test Header', () => {
 	});
 
 	test('basket item count shows correct number', () => {
-		const changeCategory = jest.fn();
-		const resetFilters = jest.fn();
-
 		render(
 			<BrowserRouter>
 				<Header

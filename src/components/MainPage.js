@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MainPage = ({ resetFilters }) => {
 	return (
-		<div className='MainPage' data-testid='MainPage'>
+		<div className='MainPage' data-testid='main-page'>
 			<div className='main-left' data-testid='main-left'>
 				<div className='adv-title'>ELECTRIC GEAR</div>
 				<div className='adv-content'>Get yours today!</div>

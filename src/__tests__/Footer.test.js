@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import App from '../App';
+import Footer from '../components/Footer';
 
 describe('Test Footer', () => {
 	test('render Footer', () => {
-		render(<App />);
+		render(<Footer />);
 
 		expect(screen.getByText(/© 2023 Guitar/)).toBeInTheDocument();
 	});

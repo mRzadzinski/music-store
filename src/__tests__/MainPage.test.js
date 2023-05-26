@@ -2,22 +2,43 @@ import React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import App from '../App';
-import MainPage from '../components/MainPage';
 import { BrowserRouter } from 'react-router-dom';
+import MainPage from '../components/MainPage';
+
+let resetFilters = jest.fn();
+
+beforeEach(() => {
+	resetFilters = jest.fn();
+});
+
+afterEach(() => {
+	jest.clearAllMocks();
+});
 
 describe('Test MainPage', () => {
 	test('render MainPage with proper class', () => {
-		render(<App />);
+		render(
+			<div>
+				<BrowserRouter>
+					<MainPage resetFilters={resetFilters} />
+				</BrowserRouter>
+			</div>
+		);
 
-		const MainPage = screen.getByTestId('MainPage');
+		const main = screen.getByTestId('main-page');
 
-		expect(MainPage).toBeInTheDocument();
-		expect(MainPage).toHaveClass('MainPage');
+		expect(main).toBeInTheDocument();
+		expect(main).toHaveClass('MainPage');
 	});
 
 	test('render main-left div with proper class', () => {
-		render(<App />);
+		render(
+			<div>
+				<BrowserRouter>
+					<MainPage resetFilters={resetFilters} />
+				</BrowserRouter>
+			</div>
+		);
 
 		const mainLeft = screen.getByTestId('main-left');
 
@@ -26,7 +47,13 @@ describe('Test MainPage', () => {
 	});
 
 	test('main-left has 3 children', () => {
-		render(<App />);
+		render(
+			<div>
+				<BrowserRouter>
+					<MainPage resetFilters={resetFilters} />
+				</BrowserRouter>
+			</div>
+		);
 
 		const mainLeft = screen.getByTestId('main-left');
 
@@ -34,8 +61,6 @@ describe('Test MainPage', () => {
 	});
 
 	test('button SHOP NOW calls resetFilters', async () => {
-		const resetFilters = jest.fn();
-
 		const user = userEvent.setup();
 		render(
 			<div>
