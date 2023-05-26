@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, renderHook, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import BasketProductCard from '../../components/Basket/BasketProductCard';
@@ -89,7 +89,6 @@ describe('Test BasketProductCard', () => {
 	});
 
 	test("doesn't render base price when quantity equals 1", async () => {
-		// Learning how to update component's props in a test
 		const { rerender } = render(
 			<BasketProductCard
 				key={key}
