@@ -19,7 +19,7 @@ const Browser = (props) => {
 	} = props;
 
 	return (
-		<div className='Browser' data-testid={'Browser'}>
+		<div className='Browser' data-testid='Browser'>
 			<Filters
 				resetFilters={resetFilters}
 				changeCategory={changeCategory}

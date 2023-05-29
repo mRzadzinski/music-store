@@ -1,5 +1,5 @@
 import './styles/App.scss';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MainPage from './components/MainPage';
@@ -20,9 +20,10 @@ function App() {
 	const [displayProducts, setDisplayProducts] = useState(products);
 	const [basketItems, setBasketItems] = useState([]);
 
-	// Initial sort
+	// Initial and consecutive sorts
 	useEffect(() => {
-		sortByPriceUpdateDisplay();
+		const productsArray = sortByPrice();
+		updateDisplayProducts(productsArray);
 	}, [sortMethod]);
 
 	// Apply filters
@@ -32,12 +33,10 @@ function App() {
 		} else {
 			let tempArray = [...products];
 
-			if (category !== null) {
-				if (category !== 'all') {
-					tempArray = tempArray.filter(
-						(product) => product.category === category
-					);
-				}
+			if (category !== null && category !== 'all') {
+				tempArray = tempArray.filter(
+					(product) => product.category === category
+				);
 			}
 
 			if (priceRange[0] !== null && priceRange[1] !== null) {
@@ -60,7 +59,8 @@ function App() {
 					(product) => product.availability === true
 				);
 			}
-			sortByPriceUpdateDisplay(tempArray);
+			tempArray = sortByPrice(tempArray);
+			updateDisplayProducts(tempArray);
 		}
 	}, [category, priceRange, availability]);
 
@@ -95,7 +95,11 @@ function App() {
 		setSortMethod(sortMethod);
 	}
 
-	function sortByPriceUpdateDisplay(productsArray) {
+	function updateDisplayProducts(productsArray) {
+		setDisplayProducts(productsArray);
+	}
+
+	function sortByPrice(productsArray) {
 		let tempArray;
 		if (productsArray) {
 			tempArray = [...productsArray];
@@ -108,7 +112,7 @@ function App() {
 		if (sortMethod === 'High to low') {
 			tempArray.reverse();
 		}
-		setDisplayProducts(tempArray);
+		return tempArray;
 	}
 
 	function addToBasket(product, quantity) {
@@ -151,7 +155,7 @@ function App() {
 
 	function removeFromBasket(product) {
 		const tempBasket = [...basketItems];
-		
+
 		tempBasket.forEach((item) => {
 			if (item.product === product) {
 				const index = tempBasket.indexOf(item);
@@ -162,60 +166,57 @@ function App() {
 	}
 
 	return (
-			<div className='App'>
-				<Header
-					changeCategory={changeCategory}
-					resetFilters={resetFilters}
-					basketItems={basketItems}
-				/>
-				<div className='content'>
-					<Routes>
-						<Route
-							path='/'
-							element={<MainPage resetFilters={resetFilters} />}
-						/>
-						<Route
-							path='/browser'
-							element={
-								<Browser
-									displayProducts={displayProducts}
-									resetFilters={resetFilters}
-									changeCategory={changeCategory}
-									changePriceRange={changePriceRange}
-									changeAvailability={changeAvailability}
-									changeSortMethod={changeSortMethod}
-									sortByPrice={sortByPriceUpdateDisplay}
-									category={category}
-									priceRange={priceRange}
-									availability={availability}
-									sortMethod={sortMethod}
-								/>
-							}
-						/>
-						<Route
-							path='/product-page/:id'
-							element={
-								<ProductPage
-									displayProducts={displayProducts}
-									basketItems={basketItems}
-									addToBasket={addToBasket}
-								/>
-							}
-						/>
-						<Route
-							path='/basket'
-							element={
-								<Basket
-									basketItems={basketItems}
-									updateProductQuantity={updateProductQuantity}
-									removeFromBasket={removeFromBasket}
-								/>
-							}
-						/>
-					</Routes>
-				</div>
-				<Footer />
+		<div className='App'>
+			<Header
+				changeCategory={changeCategory}
+				resetFilters={resetFilters}
+				basketItems={basketItems}
+			/>
+			<div className='content'>
+				<Routes>
+					<Route path='/' element={<MainPage resetFilters={resetFilters} />} />
+					<Route
+						path='/browser'
+						element={
+							<Browser
+								displayProducts={displayProducts}
+								resetFilters={resetFilters}
+								changeCategory={changeCategory}
+								changePriceRange={changePriceRange}
+								changeAvailability={changeAvailability}
+								changeSortMethod={changeSortMethod}
+								sortByPrice={sortByPrice}
+								category={category}
+								priceRange={priceRange}
+								availability={availability}
+								sortMethod={sortMethod}
+							/>
+						}
+					/>
+					<Route
+						path='/product-page/:id'
+						element={
+							<ProductPage
+								displayProducts={displayProducts}
+								basketItems={basketItems}
+								addToBasket={addToBasket}
+							/>
+						}
+					/>
+					<Route
+						path='/basket'
+						element={
+							<Basket
+								basketItems={basketItems}
+								updateProductQuantity={updateProductQuantity}
+								removeFromBasket={removeFromBasket}
+							/>
+						}
+					/>
+				</Routes>
 			</div>
+			<Footer />
+		</div>
 	);
 }
 

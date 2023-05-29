@@ -41,7 +41,7 @@ const ProductPage = ({ displayProducts, addToBasket, basketItems }) => {
 		<div className='ProductPage'>
 			<div className='product-info'>
 				<NavLink to='/browser'>
-					<div className='arrow-container'>
+					<div className='arrow-container' data-testid='arrow-container'>
 						<FontAwesomeIcon icon={faArrowLeft} size='2x' />
 					</div>
 				</NavLink>

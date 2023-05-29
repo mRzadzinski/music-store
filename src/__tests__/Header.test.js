@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import Header from '../components/Header';
-import App from '../App';
 
 const basketItems = [{ quantity: 1 }, { quantity: 1 }, { quantity: 1 }];
 let changeCategory;

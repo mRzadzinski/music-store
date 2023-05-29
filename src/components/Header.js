@@ -64,7 +64,7 @@ const Header = ({ changeCategory, resetFilters, basketItems }) => {
 				</div>
 				<NavLink to='/basket' className='navLink'>
 					<div
-						className='basket-container'
+						className='basket-container' data-testid='linkToBasket'
 						onClick={() => {
 							resetFilters();
 						}}

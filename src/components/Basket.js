@@ -19,7 +19,7 @@ const Basket = ({ basketItems, updateProductQuantity, removeFromBasket }) => {
 	}
 
 	const basketEmpty = (
-		<div className='Basket'>
+		<div className='Basket' data-testid='Basket'>
 			<div className='empty-basket'>
 				<div className='empty-basket-title'>Your basket is empty</div>
 				<div className='empty-basket-text'>
