@@ -27,7 +27,7 @@ Online store with guitar gear built in React.
 ## Skills practiced
 
 - React app architecture
-- React testing with Jest
+- Testing with Jest and React Testing Library
 - Static and dynamic Routing
 - Web app design
 
