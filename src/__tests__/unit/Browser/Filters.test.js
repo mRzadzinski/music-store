@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import Filters from '../../components/Browser/Filters';
+import Filters from '../../../components/Browser/Filters';
 
 let resetFilters;
 let changeCategory;

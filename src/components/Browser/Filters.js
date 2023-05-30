@@ -69,7 +69,7 @@ const Filters = ({
 		<div className='Filters'>
 			<div className='reset-btn-container'>
 				<button
-					id='reset-filters-btn'
+					id='reset-filters-btn' data-testid='reset-filters-btn'
 					onClick={() => {
 						resetFilters();
 						resetFilterInputs();
@@ -103,6 +103,7 @@ const Filters = ({
 					Guitars
 				</div>
 				<div
+				data-testid='amplifiers-category'
 					className='sub-cat'
 					ref={amplifiersCategory}
 					onClick={() => {
@@ -113,6 +114,7 @@ const Filters = ({
 					Amplifiers
 				</div>
 				<div
+				data-testid='effects-category'
 					className='sub-cat'
 					ref={effectsCategory}
 					onClick={() => {

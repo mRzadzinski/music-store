@@ -3,7 +3,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
-import MainPage from '../components/MainPage';
+import MainPage from '../../components/MainPage';
 
 let resetFilters = jest.fn();
 

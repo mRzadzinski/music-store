@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 
 const basketItems = [{ quantity: 1 }, { quantity: 1 }, { quantity: 1 }];
 let changeCategory;

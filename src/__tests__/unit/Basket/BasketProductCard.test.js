@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import BasketProductCard from '../../components/Basket/BasketProductCard';
+import BasketProductCard from '../../../components/Basket/BasketProductCard';
 
 let updateProductQuantity;
 let removeFromBasket;

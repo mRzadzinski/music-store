@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-import Display from '../../components/Browser/Display';
+import Display from '../../../components/Browser/Display';
 
 const displayProducts = [
 	{

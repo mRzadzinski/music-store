@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import Router from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import ProductPage from '../components/ProductPage';
+import ProductPage from '../../components/ProductPage';
 
 jest.mock('react-router-dom', () => ({
 	...jest.requireActual('react-router-dom'),

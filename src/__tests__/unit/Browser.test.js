@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Browser from '../components/Browser';
+import Browser from '../../components/Browser';
 
 describe('Test Browser', () => {
 	test('renders browser', () => {
